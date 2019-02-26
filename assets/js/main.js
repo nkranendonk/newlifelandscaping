@@ -34,6 +34,10 @@
 				}, 100);
 			});
 
+			// set photo gallery height
+		var photoWidth = $('.photo-grid-cell').width();
+		$('.photo-grid-cell').css({'height':photoWidth+'px'});
+
 		// Fix: Placeholder polyfill.
 			$('form').placeholder();
 
