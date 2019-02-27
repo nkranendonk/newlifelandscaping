@@ -24,6 +24,7 @@
 			$footer = $('#footer'),
 			$main = $('#main'),
 			$main_articles = $main.children('article');
+			$lastPage = "";
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
@@ -308,14 +309,14 @@
 								location.hash = '';
 							});
 
-					// Prevent clicks from inside article from bubbling.
+					/* Prevent clicks from inside article from bubbling.
 						$this.on('click', function(event) {
 							event.stopPropagation();
 						});
-
+*/
 				});
 
-			// Events.
+			/* Events.
 				$body.on('click', function(event) {
 
 					// Article visible? Hide.
@@ -323,7 +324,7 @@
 							$main._hide(true);
 
 				});
-
+*/
 				$window.on('keyup', function(event) {
 
 					switch (event.keyCode) {
@@ -348,7 +349,7 @@
 					// Empty hash?
 						if (location.hash == ''
 						||	location.hash == '#') {
-
+							$lastPage = '';
 							// Prevent default.
 								event.preventDefault();
 								event.stopPropagation();
@@ -360,14 +361,15 @@
 
 					// Otherwise, check for a matching article.
 						else if ($main_articles.filter(location.hash).length > 0) {
-
-							// Prevent default.
+							if ($lastPage !== location.hash) {
+								$lastPage = location.hash;
+								// Prevent default.
 								event.preventDefault();
 								event.stopPropagation();
 
-							// Show article.
+								// Show article.
 								$main._show(location.hash.substr(1));
-
+							}
 						}
 
 				});
