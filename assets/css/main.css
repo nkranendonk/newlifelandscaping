@@ -1580,6 +1580,24 @@
 
 		}
 
+	@media screen and (min-width: 509px) {
+		.services-container {
+			display: flex;
+		}
+
+		.listItems li {
+			width: 14rem;
+		}
+
+		.services-pictures img {
+			display: block;
+		}
+	}
+
+	.service-pictures img:nth-child(2) {
+		padding-top: 1.5rem
+	}
+
     .photo-grid-container {
         margin: 0 auto;
 		max-width: 1200px;
